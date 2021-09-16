@@ -50,18 +50,18 @@ const Player = () => {
     }
   })
 
-  // total duration of the current music if meta data is available
-  const loadedMetaData = () => {
-    const seconds = Math.floor(audioEl.current!.duration)
-    setDuration(seconds)
-    rangeRef.current!.max = seconds.toString()
-  }
-
   // seek animation while playing
   const whilePlaying = () => {
     rangeRef.current!.value = audioEl.current!.currentTime.toString()
     changePlayerCurrentTime()
     animationRef.current = requestAnimationFrame(whilePlaying)
+  }
+
+  // total duration of the current music if meta data is available
+  const loadedMetaData = () => {
+    const seconds = Math.floor(audioEl.current!.duration)
+    setDuration(seconds)
+    rangeRef.current!.max = seconds.toString()
   }
 
   // change the range of the progress bar
