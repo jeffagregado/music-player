@@ -15,15 +15,18 @@ const Library = () => {
 
   // song list from data
   const musicLists = useStore((state) => state.songList)
-  const setCurrentSongIndex = useStore((state) => state.setCurrentSongIndex)
-  const setAlwaysTrue = useStore((state) => state.setAlwaysTrue)
-  const setActive = useStore((state) => state.setActive)
+
+  // actions from store
+  const setCurrentSongIndex = useStore((state) => state.setCurrentSongIndex) // set current index
+  const setAlwaysTrue = useStore((state) => state.setAlwaysTrue) // set isPlaying to true
+  const setActive = useStore((state) => state.setActive) // set active on clicked music
 
   // find Index
   const getIndex = (id: string) => {
     return musicLists.findIndex((obj: any) => obj.id === id)
   }
 
+  // play music when clicked
   const playClickedSong = (id: string) => {
     setCurrentSongIndex(getIndex(id))
     setAlwaysTrue()
@@ -44,15 +47,6 @@ const Library = () => {
           </li>
         ))}
       </ul>
-
-      {/* {musicLists.map((music: any) => (
-        <Card
-          src={music.cover}
-          title={music.name}
-          artist={music.artist}
-          onClick={() => playClickedSong(music.id)}
-        />
-      ))} */}
     </Modal>
   )
 }
