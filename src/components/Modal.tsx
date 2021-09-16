@@ -25,11 +25,19 @@ const ModalContainer = styled(motion.div)`
 
 const ModalChildren = styled(motion.div)`
   padding: 2em;
-  background-color: white;
   display: flex;
-  flex-wrap: wrap;
-  min-width: 350px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  background-color: white;
+  width: 80%;
   min-height: 500px;
+
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1em;
+    overflow-x: auto;
+  }
 `
 
 // animation variants for Framer motion components
@@ -45,11 +53,7 @@ const modalVariants: Variants = {
   exit: { y: -100, opacity: 0 },
 }
 
-const Modal = ({
-  children,
-  isState,
-  propRef,
-}: Props) => {
+const Modal = ({ children, isState, propRef }: Props) => {
   useEffect(() => {
     if (isState && (document.body.style.overflow = 'hidden'))
       return () => {

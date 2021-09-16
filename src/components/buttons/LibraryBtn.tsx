@@ -6,6 +6,12 @@ const StyledLibrary = styled.button`
   border: 1px solid black;
   border-radius: 10px;
   padding: 0.5em 1em;
+
+  &:hover {
+    color: white;
+    background-color: black;
+    transition: 300ms ease-in-out all
+  }
 `
 
 const LibraryBtn = () => {
