@@ -24,19 +24,46 @@ const ModalContainer = styled(motion.div)`
 `
 
 const ModalChildren = styled(motion.div)`
-  padding: 2em;
+  padding: 1em;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
   background-color: white;
   width: 80%;
-  min-height: 500px;
+  height: 90vh;
+  overflow-y: auto;
 
-  ul {
+  & > ul {
     display: flex;
     flex-wrap: nowrap;
+    flex-direction: column;
     gap: 1em;
+    /* overflow-y: auto; */
+  }
+
+  @media (min-width: 640px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 80%;
+    height: 0;
+    min-height: 500px;
     overflow-x: auto;
+    gap: 1em;
+
+    & > ul {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      gap: 1em;
+      /* overflow-x: auto; */
+    }
   }
 `
 

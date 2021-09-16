@@ -14,6 +14,8 @@ interface PlayerState {
   setIsPlaying: () => void
   setActive: (id: number | string) => void
   libraryToggle: () => void
+  setCurrentSongIndex: (id: number) => void
+  setAlwaysTrue: () => void
 }
 
 // Create Store
@@ -40,6 +42,11 @@ const useStore = create<PlayerState>((set, get) => ({
     const { showLibrary } = get()
     set({ showLibrary: !showLibrary })
   },
+  setCurrentSongIndex: (index: number) =>
+    set((state) => {
+      state.currentSongIndex = index
+    }),
+  setAlwaysTrue: () => set((state) => ({ isPlaying: true })),
 }))
 
 export default useStore

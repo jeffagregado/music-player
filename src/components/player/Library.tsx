@@ -13,17 +13,46 @@ const Library = () => {
   const modalRef = useRef<HTMLDivElement>(null) // ref for div from Modal component
   useOnClickOutside(modalRef, () => libraryToggle()) // custom hook to trigger click outsite modal
 
+  // song list from data
   const musicLists = useStore((state) => state.songList)
+  const setCurrentSongIndex = useStore((state) => state.setCurrentSongIndex)
+  const setAlwaysTrue = useStore((state) => state.setAlwaysTrue)
+  const setActive = useStore((state) => state.setActive)
+
+  // find Index
+  const getIndex = (id: string) => {
+    return musicLists.findIndex((obj: any) => obj.id === id)
+  }
+
+  const playClickedSong = (id: string) => {
+    setCurrentSongIndex(getIndex(id))
+    setAlwaysTrue()
+    setActive(id)
+  }
 
   return (
     <Modal propRef={modalRef} isState={showLibrary}>
       <ul>
         {musicLists.map((music: any) => (
-          <li>
-            <Card src={music.cover} title={music.name} artist={music.artist} />
+          <li key={music.id}>
+            <Card
+              src={music.cover}
+              title={music.name}
+              artist={music.artist}
+              onClick={() => playClickedSong(music.id)}
+            />
           </li>
         ))}
       </ul>
+
+      {/* {musicLists.map((music: any) => (
+        <Card
+          src={music.cover}
+          title={music.name}
+          artist={music.artist}
+          onClick={() => playClickedSong(music.id)}
+        />
+      ))} */}
     </Modal>
   )
 }

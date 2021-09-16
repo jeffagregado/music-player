@@ -27,11 +27,12 @@ interface Props {
   alt?: string
   title: string
   artist: string
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
-const Card = ({ src, alt, title, artist }: Props) => {
+const Card = ({ src, alt, title, artist, onClick }: Props) => {
   return (
-    <StyledCard>
+    <StyledCard onClick={onClick}>
       <Image src={src} alt={alt} />
 
       <h1>{title}</h1>

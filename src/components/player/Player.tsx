@@ -13,7 +13,12 @@ const PlayerContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 2em;
   height: 100vh;
+
+  @media (min-width: 768px) {
+    padding-top: 0em;
+  }
 `
 
 const Player = () => {
