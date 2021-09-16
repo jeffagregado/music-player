@@ -19,7 +19,8 @@ const Library = () => {
   // actions from store
   const setCurrentSongIndex = useStore((state) => state.setCurrentSongIndex) // set current index
   const setAlwaysTrue = useStore((state) => state.setAlwaysTrue) // set isPlaying to true
-  const setActive = useStore((state) => state.setActive) // set active on clicked music
+  const setActive = useStore((state) => state.setActive) // set true on clicked/active music
+  const setInActive = useStore((state) => state.setInActive) // set false on non active music
 
   // find Index
   const getIndex = (id: string) => {
@@ -31,6 +32,7 @@ const Library = () => {
     setCurrentSongIndex(getIndex(id))
     setAlwaysTrue()
     setActive(id)
+    setInActive(id)
   }
 
   return (
@@ -43,6 +45,7 @@ const Library = () => {
               title={music.name}
               artist={music.artist}
               onClick={() => playClickedSong(music.id)}
+              className={music.active === true && 'card-active'}
             />
           </li>
         ))}

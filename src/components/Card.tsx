@@ -6,6 +6,16 @@ const StyledCard = styled.div`
   width: 300px;
   min-height: 300px;
   cursor: pointer;
+  padding: 1em;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #61d2ff3e;
+  }
+
+  &.card-active {
+    background-color: #61d2ff3e;
+  }
 
   & > h1 {
     font-size: 1.5rem;
@@ -28,11 +38,12 @@ interface Props {
   title: string
   artist: string
   onClick?: React.MouseEventHandler<HTMLDivElement>
+  className?: string | any
 }
 
-const Card = ({ src, alt, title, artist, onClick }: Props) => {
+const Card = ({ src, alt, title, artist, onClick, className }: Props) => {
   return (
-    <StyledCard onClick={onClick}>
+    <StyledCard onClick={onClick} className={className}>
       <Image src={src} alt={alt} />
 
       <h1>{title}</h1>
