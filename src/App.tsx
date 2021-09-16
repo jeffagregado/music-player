@@ -1,12 +1,12 @@
-import Container from "./components/Container";
-
+import Container from './components/Container'
+import Player from './components/player/Player'
 
 function App() {
   return (
     <Container>
-      adasdasd
+      <Player />
     </Container>
-  );
+  )
 }
 
-export default App;
+export default App
