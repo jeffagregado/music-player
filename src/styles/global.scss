@@ -1,5 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: 0;
+@import '~tailwindcss/base';
+@import '~tailwindcss/components';
+@import '~tailwindcss/utilities';
+
+@layer base {
+  * {
+    @apply m-0 p-0;
+  }
 }

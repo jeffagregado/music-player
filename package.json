@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
@@ -29,7 +30,7 @@
     "zustand": "^3.5.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env TAILWIND_MODE=watch craco start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,5 +52,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "9",
+    "cross-env": "^7.0.3",
+    "postcss": "7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
