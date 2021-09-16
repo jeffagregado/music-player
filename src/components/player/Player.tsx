@@ -7,6 +7,7 @@ import Label from './Label'
 import ProgressBar from './ProgressBar'
 import { calculateTime } from '../../utils/calculateTime'
 import LibraryBtn from '../buttons/LibraryBtn'
+import useSetTitle from '../../utils/hooks/useSetTitle'
 
 const PlayerContainer = styled.div`
   display: flex;
@@ -93,6 +94,12 @@ const Player = () => {
     )
     setCurrentTime(parseFloat(rangeRef.current!.value))
   }
+
+  // current music name and artist
+  const currentMusicTitle = `${songList[currentSongIndex].name} | ${songList[currentSongIndex].artist}`
+
+  // custom hook to change title
+  useSetTitle(currentMusicTitle)
 
   return (
     <PlayerContainer>
