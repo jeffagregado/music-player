@@ -48,6 +48,18 @@ const Player = () => {
       audioEl.current?.pause() // pause current music
       cancelAnimationFrame(animationRef.current)
     }
+
+    // set gradient color one from the current song
+    rangeRef.current?.style.setProperty(
+      '--seek-before-color-one',
+      `${songList[currentSongIndex].color[0]}`
+    )
+
+    // set gradient color two from the current song
+    rangeRef.current?.style.setProperty(
+      '--seek-before-color-two',
+      `${songList[currentSongIndex].color[1]}`
+    )
   })
 
   // seek animation while playing
@@ -78,18 +90,6 @@ const Player = () => {
     rangeRef.current?.style.setProperty(
       '--seek-before-width',
       `${(parseFloat(rangeRef.current.value) / duration) * 100}%`
-    )
-
-    // set gradient color one from the current song
-    rangeRef.current?.style.setProperty(
-      '--seek-before-color-one',
-      `${songList[currentSongIndex].color[0]}`
-    )
-
-    // set gradient color two from the current song
-    rangeRef.current?.style.setProperty(
-      '--seek-before-color-two',
-      `${songList[currentSongIndex].color[1]}`
     )
     setCurrentTime(parseFloat(rangeRef.current!.value))
   }
