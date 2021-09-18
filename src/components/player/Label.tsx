@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import useStore from '../../store/PlayerStore'
+import useStore from '../../store/useStore'
 
 const LabelContainer = styled.div`
   display: flex;

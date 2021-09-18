@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import useStore from '../../store/PlayerStore'
+import useStore from '../../store/useStore'
 import useOnClickOutside from '../../utils/hooks/useClickOutside'
 import Card from '../Card'
 import Modal from '../Modal'

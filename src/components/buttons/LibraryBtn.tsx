@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import useStore from '../../store/PlayerStore'
+import useStore from '../../store/useStore'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const StyledLibrary = styled.button`

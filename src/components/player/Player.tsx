@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import useStore from '../../store/PlayerStore'
+import useStore from '../../store/useStore'
 import styled from 'styled-components'
 import Controls from './Controls'
 import Cover from './Cover'

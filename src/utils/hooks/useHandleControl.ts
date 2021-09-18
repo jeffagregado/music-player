@@ -1,4 +1,4 @@
-import useStore from '../../store/PlayerStore'
+import useStore from '../../store/useStore'
 
 export const useHandleControl = () => {
   // song list data
