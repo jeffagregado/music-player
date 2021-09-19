@@ -82,7 +82,7 @@ const Player = () => {
     const audio = audioEl.current
     const progressBar = rangeRef.current
 
-    audio!.currentTime = parseFloat(progressBar!.value)
+    audio!.currentTime = parseFloat(progressBar!.value) // skip duration
     changePlayerCurrentTime()
   }
 
