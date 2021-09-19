@@ -87,7 +87,7 @@ const Player = () => {
   }
 
   const changePlayerCurrentTime = () => {
-    // tracks the music range
+    // tracks the music range / changes the width of the progress bar
     rangeRef.current?.style.setProperty(
       '--seek-before-width',
       `${(parseFloat(rangeRef.current.value) / duration) * 100}%`
