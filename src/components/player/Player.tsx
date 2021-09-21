@@ -49,7 +49,6 @@ const Player = () => {
       audioEl.current?.pause() // pause current music
       cancelAnimationFrame(animationRef.current)
     }
-
     // set gradient color one from the current song
     rangeRef.current?.style.setProperty(
       '--seek-before-color-one',

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import useStore from '../../store/useStore'
+import { getIndex } from '../../utils/getIndex'
 import useOnClickOutside from '../../utils/hooks/useClickOutside'
 import Card from '../Card'
 import Modal from '../Modal'
@@ -22,14 +23,10 @@ const Library = () => {
   const setActive = useStore((state) => state.setActive) // set true on clicked/active music
   const setInActive = useStore((state) => state.setInActive) // set false on non active music
 
-  // find Index
-  const getIndex = (id: string) => {
-    return musicLists.findIndex((obj: any) => obj.id === id)
-  }
 
   // play music when clicked
   const playClickedSong = (id: string) => {
-    setCurrentSongIndex(getIndex(id))
+    setCurrentSongIndex(getIndex(id, musicLists))
     setAlwaysTrue()
     setActive(id)
     setInActive(id)
